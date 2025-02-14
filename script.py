@@ -26,3 +26,47 @@
 # Optional: 
 # - Fügen Sie weitere Funktionen hinzu, wie z.B. Potenzierung oder Modulo.
 # - Implementieren Sie eine Schleife, um mehrere Berechnungen hintereinander durchzuführen, bis der Benutzer das Programm beendet.
+
+def add_numbers(num1, num2):
+    return num1 + num2
+
+def sub_numbers( num1, num2):
+    return num1 - num2
+
+def multi_numbers(num1, num2):
+    return num1 * num2
+
+def div_numbers(num1, num2):
+    if num2 == 0:
+      print("Keine Division durch NULL")
+      return None
+    return num1 / num2
+
+def main():
+    try:
+        num1 = float(input("Zahl1"))
+        num2 = float(input("Zahl2"))
+    except ValueError:
+        print("Geben sie gültige Zahlen ein")
+        return
+
+    #print("Operation?:")
+    operation = input("Geben sie eine Operation ein: ")
+
+    if operation == "+":
+      result = add_numbers(num1, num2)
+    if operation == "-":
+      result = sub_numbers(num1, num2)
+    if operation == "*":
+      result = multi_numbers(num1, num2)
+    if operation == "/":
+      result = div_numbers(num1, num2)
+    else:
+      print("Ungültige Eingabe!")
+      return
+  
+    if result is not None:
+      print(F"Das Ergebnis ist: {result}")
+
+if __name__ == "__main__":
+    main()
