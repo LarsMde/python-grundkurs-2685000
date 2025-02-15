@@ -47,3 +47,16 @@ class Bücherregal:
         else:
             print("Das Bücherregeal ist leer.")
             
+buch1 = Buch("Der Hobbit", "J.R.R. Tolkien")
+print("Titel lautet:", buch1.titel)
+buch2 = Buch("1984", "George Orwell")
+print("Author lautet:", buch2.author)
+print("Status lautet:", buch2.get_status())
+
+regal = Bücherregal()
+regal.buch_hinzufügen(buch1)
+regal.buch_hinzufügen(buch2)
+
+regal.alle_bücher_anzeigen()
+buch1.ausleihen()
+regal.alle_bücher_anzeigen()
