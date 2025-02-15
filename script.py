@@ -51,3 +51,15 @@ class BankAccount:
     
 # Aufgabe: Erstellen Sie ein neues Jugendbankkonto, dass von der Klasse 
 # BankAccount erbt und beschränken sie die Abhebungen auf maximal 25€.
+
+class Jugendbankkonto(BankAccount):
+        def abheben(self, betrag):
+            if betrag > 25:
+                print(f"Die maximale Auszahlung beträgt 25€")
+            else:
+                return super().abheben(betrag)
+
+konto = Jugendbankkonto("Hans","DE1223456789", 500)
+print(konto)
+konto.abheben(50)
+konto.abheben(20)
