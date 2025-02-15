@@ -18,3 +18,30 @@
 # Optional:
 # - Erstellen Sie eine Methode, die Transaktionen protokolliert und eine Liste von Ein- und Auszahlungen ausgibt.
 
+class BankAccount:
+    def __init__(self, inhaber, kontonummer, start_kontostand):
+        self.inhaber = inhaber
+        self.kontonummer = kontonummer
+        self.__kontostand = start_kontostand
+
+    def __str__(self):
+        return f"Der Kontostand von {self.inhaber} mit der Kontonummer {self.kontonummer} beträgt {self.__kontostand}"
+
+    def einzahlen(self, betrag):
+        self.__kontostand += betrag
+
+    def abheben(self, betrag):
+        if betrag > self.__kontostand:
+            print("Fehler: Nicht genügend Guthaben!")
+        else:
+            self.__kontostand -= betrag
+
+    def get_kontostand(self):
+        return self.__kontostand
+
+konto1 = BankAccount("Max Mustermann", "DE123456789", 100.50)
+print(konto1)
+
+konto1.einzahlen(2000)
+konto1.abheben(333)
+print(f"Kontostand nach Abhebungen: {konto1.get_kontostand():.2f}€")
